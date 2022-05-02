@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<div>
+		<h:form id="form_login">
+			<h:outputText id="validationMessage" rendered="#{not empty loginView.validationMessage}" value="#{loginView.validationMessage}"> </h:outputText>
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="username" value="Username:" />
+				<h:inputText value="#{loginView.username}" id="username" name="username"
+					placeholder="#{msg['login.username.placeholder']}" autofocus="" />
+
+				<h:outputLabel for="password" value="Password:" />
+				<h:inputSecret value="#{loginView.password}" id="password"  name="password"
+					placeholder="#{msg['login.password.placeholder']}" />
+
+				<f:facet name="footer">
+					<h:commandButton id="button" value="#{msg['login.button.label']}"
+						action="#{loginView.login}" type="submit" update="validationMessage">
+					</h:commandButton>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</div>
+</h:body>
+</html>
